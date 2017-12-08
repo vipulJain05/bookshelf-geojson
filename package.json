@@ -1,0 +1,58 @@
+{
+  "name": "bookshelf-geojson",
+  "version": "1.0.0",
+  "description": "Automatically parse and format PostGIS geometry columns as GeoJSON in your models",
+  "main": "index.js",
+  "scripts": {
+    "doctoc": "doctoc --notitle --github README.md",
+    "migrate": "cross-env NODE_ENV=test knex migrate:rollback && cross-env NODE_ENV=test knex migrate:latest",
+    "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha spec/**/*.spec.js",
+    "test:coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "test:debug": "cross-env DEBUG=bookshelf-geojson npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MediaComem/bookshelf-geojson.git"
+  },
+  "keywords": [
+    "bookshelf",
+    "geojson",
+    "postgis"
+  ],
+  "author": "Media Engineering Institute <mei@heig-vd.ch> (mei.heig-vd.ch)",
+  "contributors": [
+    "Simon Oulevay <npm@alphahydrae.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MediaComem/bookshelf-geojson/issues"
+  },
+  "homepage": "https://github.com/MediaComem/bookshelf-geojson#readme",
+  "files": [
+    "index.js",
+    "LICENSE.txt",
+    "README.md"
+  ],
+  "dependencies": {
+    "knex-postgis": "^0.5.0",
+    "wellknown": "^0.5.0"
+  },
+  "peerDependencies": {
+    "bookshelf": "0.x"
+  },
+  "devDependencies": {
+    "babel-plugin-istanbul": "^4.1.5",
+    "babel-register": "^6.26.0",
+    "bookshelf": "^0.11.1",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "cross-env": "^5.1.1",
+    "debug": "^3.1.0",
+    "doctoc": "^1.3.0",
+    "knex": "^0.14.1",
+    "lodash": "^4.17.4",
+    "mocha": "^4.0.1",
+    "nyc": "^11.3.0",
+    "pg": "^7.4.0"
+  }
+}

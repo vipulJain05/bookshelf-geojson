@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "8"
+addons:
+  postgresql: 9.6
+services:
+  - postgresql
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install postgresql-9.6-postgis-2.3
+before_script:
+  - psql -U postgres -c 'create database bookshelf-geojson;'
+  - psql -U postgres -c 'create extension postgis;' bookshelf-geojson
+  - npm run migrate
+after_success:
+  - npm run test:coveralls
