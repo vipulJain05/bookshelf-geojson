@@ -26,11 +26,7 @@ module.exports = function(db) {
 
       const geomProperty = getGeometryProperty(this);
       if (geomProperty && parsed[geomProperty]) {
-        try {
-          parsed[geomProperty] = JSON.parse(parsed[geomProperty]);
-        } catch (error) {
-          console.error(error);
-        }
+        parsed[geomProperty] = JSON.parse(parsed[geomProperty]);
       }
 
       return parsed;
